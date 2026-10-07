@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ardillon — ¡Corre Katalina!</title>
+  <meta name="description" content="Juego de carrera infinita 3D con Katalina la ardilla. Esquiva obstáculos y recolecta nueces.">
+
+  <!-- Three.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Estilos del juego -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       PANTALLA DE INICIO
+       ============================================================ -->
+  <div id="startScreen">
+    <div class="start-bg-glow"></div>
+    <div class="start-squirrel-icon">🐿️</div>
+    <h1 class="start-title">ARDILLON</h1>
+    <p class="start-subtitle">¡Ayuda a Katalina a recoger todas las nueces!</p>
+    <button id="btnPlay" class="btn-play">▶ JUGAR</button>
+    <div class="start-controls">
+      <kbd>←</kbd> <kbd>→</kbd> o <kbd>A</kbd> <kbd>D</kbd> Cambiar carril<br>
+      <kbd>↑</kbd> o <kbd>Espacio</kbd> Saltar &nbsp;·&nbsp; <kbd>↓</kbd> Deslizarse<br>
+      📱 Swipe en móvil
+    </div>
+    <div class="start-highscore" id="startHighscore"></div>
+  </div>
+
+  <!-- ============================================================
+       HUD (Heads-Up Display)
+       ============================================================ -->
+  <div id="hud">
+    <div class="hud-left">
+      <div class="hud-lives" id="hudLives"></div>
+      <div class="hud-powerups">
+        <div class="powerup-indicator" id="magnetIndicator">
+          🧲 Imán
+          <div class="timer-bar"><div class="timer-fill" id="magnetTimer"></div></div>
+        </div>
+        <div class="powerup-indicator" id="shieldIndicator">
+          🛡️ Escudo
+        </div>
+      </div>
+    </div>
+    <div class="hud-center">
+      <div class="hud-score" id="hudScore">0</div>
+      <div class="hud-label">PUNTOS</div>
+    </div>
+    <div class="hud-right">
+      <div class="hud-highscore" id="hudHighscore">🏆 0</div>
+      <div class="hud-distance" id="hudDistance">0m</div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       PANTALLA DE GAME OVER
+       ============================================================ -->
+  <div id="gameOverScreen">
+    <div class="gameover-title">💥 ¡GAME OVER!</div>
+    <div class="gameover-stats">
+      <div class="gameover-score-label">Puntuación</div>
+      <div class="gameover-score-value" id="goScore">0</div>
+      <div class="gameover-highscore" id="goHighscore">Récord: <span>0</span></div>
+      <div class="gameover-new-record" id="goNewRecord" style="display:none;">🎉 ¡NUEVO RÉCORD!</div>
+      <div class="gameover-details">
+        <div class="gameover-detail">
+          <div class="gameover-detail-value" id="goNuts">0</div>
+          <div class="gameover-detail-label">Nueces</div>
+        </div>
+        <div class="gameover-detail">
+          <div class="gameover-detail-value" id="goAcorns">0</div>
+          <div class="gameover-detail-label">Bellotas</div>
+        </div>
+        <div class="gameover-detail">
+          <div class="gameover-detail-value" id="goDistance">0m</div>
+          <div class="gameover-detail-label">Distancia</div>
+        </div>
+      </div>
+    </div>
+    <button id="btnRestart" class="btn-restart">🔄 REINICIAR</button>
+  </div>
+
+  <!-- Hint para móviles -->
+  <div id="mobileHint">⬅️ Swipe para moverte · ⬆️ Swipe para saltar · ⬇️ Swipe para deslizar</div>
+
+  <!-- Lógica del juego -->
+  <script src="script.js"></script>
+</body>
+</html>
